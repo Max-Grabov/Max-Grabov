@@ -8,7 +8,9 @@ set smartcase
 set laststatus=2
 set hidden
 set ttimeoutlen=1
- 
+
+set hlsearch
+
 " Install plugins and plugin manager if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -33,7 +35,7 @@ endif
 " Commands
 " ! Overwrittes the current C command if it exists without showing the
 " annoying error
-:command! C :let @/ = ""
+":command! C :let @/ = ""
 
 " Maps
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -45,21 +47,21 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-nnoremap <C-t> :tabnew<CR>
+nnoremap <C-t> :tabnew<CR>  
 
 " Mappings to automatically put a 2nd character for things such as ', ", {
 " etc.
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap { {}<left>
-inoremap [ []<left>
+"inoremap " ""<left>
+"inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap { {}<left>
+"inoremap [ []<left>
 
 " Maps for commenting in visual mode
 vnoremap / :norm i//<CR>
 vnoremap <C-_> :norm xx<CR>
 
-" Maps for FZF
+" Maps for FZF 
 nnoremap <Space>f :Files<CR>
 nnoremap <Space>g :GFiles<CR>
 
@@ -79,6 +81,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 Plug 'bfrg/vim-cpp-modern'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'romainl/vim-cool'
+Plug 'mhinz/vim-startify'
 "Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -96,3 +103,7 @@ let g:ale_c_parse_compile_commands=1
 let g:ale_c_build_dir_names=['build', 'build-debug', 'build-release']
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
+
+" vim cool
+let g:cool_total_matches = 1
+
