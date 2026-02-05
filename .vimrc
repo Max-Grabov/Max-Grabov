@@ -9,8 +9,6 @@ set laststatus=2
 set hidden
 set ttimeoutlen=1
 
-set hlsearch
-
 " Install plugins and plugin manager if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -42,12 +40,11 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
+" Mobility maps for navigating splits
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-
-nnoremap <C-t> :tabnew<CR>  
 
 " Mappings to automatically put a 2nd character for things such as ', ", {
 " etc.
@@ -57,6 +54,9 @@ nnoremap <C-t> :tabnew<CR>
 "inoremap { {}<left>
 "inoremap [ []<left>
 
+" fugitive maps
+nmap <C-g> :G add %<CR>
+
 " Maps for commenting in visual mode
 vnoremap / :norm i//<CR>
 vnoremap <C-_> :norm xx<CR>
@@ -64,6 +64,8 @@ vnoremap <C-_> :norm xx<CR>
 " Maps for FZF 
 nnoremap <Space>f :Files<CR>
 nnoremap <Space>g :GFiles<CR>
+nnoremap <Space>n :NERDTree<CR>
+nnoremap <Space>t :NERDTreeToggle<CR>
 
 " Maps for Ale
 nnoremap <S-d> :ALEGoToDefinition -tab<CR>
@@ -86,6 +88,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'romainl/vim-cool'
 Plug 'mhinz/vim-startify'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 "Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -95,11 +100,16 @@ let g:onedark_config = {
 
 colorscheme onedark
 
+" CPP Modern stuff
+let g:cpp_member_highlight = 1
+let g:cpp_operator_highlight = 1
+
+" Autocomplete
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_min_input_length = 3
 
 " Ale settings
-let g:ale_c_parse_compile_commands=1
+let g:ale_c_parse_compile_commands = 1
 let g:ale_c_build_dir_names=['build', 'build-debug', 'build-release']
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
@@ -107,3 +117,4 @@ let g:ale_completion_autoimport = 1
 " vim cool
 let g:cool_total_matches = 1
 
+let g:NERDTreeGitStatusUseNerdFonts = 1
