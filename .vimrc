@@ -78,7 +78,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
@@ -91,6 +90,11 @@ Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+" themes
+Plug 'joshdick/onedark.vim'
+Plug 'glepnir/oceanic-material'
+Plug 'sts10/vim-pink-moon'
+Plug 'nordtheme/vim'
 "Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -98,7 +102,9 @@ let g:onedark_config = {
     \ 'style': 'cool',
 \}
 
+set termguicolors
 colorscheme onedark
+set background=dark
 
 " CPP Modern stuff
 let g:cpp_member_highlight = 1
