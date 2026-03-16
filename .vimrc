@@ -56,6 +56,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 " fugitive maps
 nmap <C-g> :G add %<CR>
+nmap <C-d> :G diff %<CR>
 
 " Maps for commenting in visual mode
 vnoremap / :norm i//<CR>
@@ -66,6 +67,7 @@ nnoremap <Space>f :Files<CR>
 nnoremap <Space>g :GFiles<CR>
 nnoremap <Space>n :NERDTree<CR>
 nnoremap <Space>t :NERDTreeToggle<CR>
+nnoremap <Space>a :Ag<CR>
 
 " Maps for Ale
 nnoremap <S-d> :ALEGoToDefinition -tab<CR>
@@ -83,9 +85,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-fugitive'
+" cs and ds command for surroundings
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+" Vim Cool is for better search functionality, researching when using n or C-n
 Plug 'romainl/vim-cool'
+" Start screen for vim
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
